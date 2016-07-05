@@ -1,0 +1,25 @@
+﻿<Properties StartupItem="DockSafe/DockSafe.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DockSafe/ToolbarWrapper.cs">
+    <Files>
+      <File FileName="DockSafe/DockSafe.cs" Line="40" Column="7" />
+      <File FileName="DockSafe/ToolbarWrapper.cs" Line="33" Column="19" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DockSafe" expanded="True">
+            <Node name="DockSafe" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="ToolbarWrapper.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
