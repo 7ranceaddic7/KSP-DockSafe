@@ -1,11 +1,11 @@
 {
     "NAME"     : "Docking Safety System",
-    "URL"      : "",
-    "DOWNLOAD" : "",
+    "URL"      : "https://raw.githubusercontent.com/Real-Gecko/KSP-DockSafe/master/GameData/DockSafe/DockSafe.version",
+    "DOWNLOAD" : "https://github.com/Real-Gecko/KSP-DockSafe/releases",
     "GITHUB" :
     {
-        "USERNAME" : "",
-        "REPOSITORY" : ""
+        "USERNAME" : "Real-Gecko",
+        "REPOSITORY" : "KSP-DockSafe"
     },
     "VERSION" :
     {
