@@ -14,6 +14,7 @@ namespace DockSafe
 		{
 			isActive = false;
 			GameEvents.onGUIApplicationLauncherReady.Add (OnAppLauncherReady);
+			GameEvents.onVesselChange.Add (OnVesselChange);
 		}
 
 		void Update()
@@ -28,6 +29,7 @@ namespace DockSafe
 		void OnDestroy()
 		{
 			GameEvents.onGUIApplicationLauncherReady.Remove(OnAppLauncherReady);
+			GameEvents.onVesselChange.Remove (OnVesselChange);
 			if (AppLauncherButton != null) {
 				ApplicationLauncher.Instance.RemoveModApplication (AppLauncherButton);
 			}
@@ -47,9 +49,14 @@ namespace DockSafe
 					GameDatabase.Instance.GetTexture ("DockSafe/Textures/ds_off", false)
 				);
 			}
+			// If vessel has disabled engines, then DS was active previously, reinitiate override
+			if (CheckActive ()) {
+				AppLauncherButton.SetTrue ();
+			}
 		}
 
-		public void Activate() {
+		// Activate app
+		private void Activate() {
 			if (!isActive) {
 				isActive = true;
 				ShutdownEngines ();
@@ -60,6 +67,7 @@ namespace DockSafe
 			}
 		}
 
+		// Deactivate app
 		private void Deactivate() {
 			isActive = false;
 			ActivateEngines ();
@@ -69,7 +77,8 @@ namespace DockSafe
 			);
 		}
 
-		public void ShutdownEngines() {
+		// Shutdown engines and override control
+		private void ShutdownEngines() {
 			foreach (Part p in FlightGlobals.ActiveVessel.Parts) {
 				foreach(PartModule pm in p.Modules) {
 					if (pm is ModuleEngines) {
@@ -83,7 +92,8 @@ namespace DockSafe
 			}
 		}
 
-		public void ActivateEngines() {
+		// Restore engines control without reactivating them
+		private void ActivateEngines() {
 			foreach (Part p in FlightGlobals.ActiveVessel.Parts) {
 				foreach(PartModule pm in p.Modules) {
 					if (pm is ModuleEngines) {
@@ -93,6 +103,31 @@ namespace DockSafe
 						}
 					}
 				}
+			}
+		}
+
+		// Check if there are disabled engines
+		private bool CheckActive() {
+			Debug.Log ("ds - " + FlightGlobals.ActiveVessel);
+			foreach (Part p in FlightGlobals.ActiveVessel.Parts) {
+				foreach(PartModule pm in p.Modules) {
+					if (pm is ModuleEngines) {
+						ModuleEngines eng = (ModuleEngines)pm;
+						if (eng.Events ["Activate"].guiActive == false) {
+							return true;
+						}
+					}
+				}
+			}
+			return false;
+		}
+
+		// If vessel has disabled engines, then DS was active previously, reinitiate override
+		private void OnVesselChange (Vessel v) {
+			if (CheckActive ()) {
+				AppLauncherButton.SetTrue ();
+			} else {
+				AppLauncherButton.SetFalse ();
 			}
 		}
 	}
