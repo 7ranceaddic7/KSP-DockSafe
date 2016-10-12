@@ -108,7 +108,6 @@ namespace DockSafe
 
 		// Check if there are disabled engines
 		private bool CheckActive() {
-			Debug.Log ("ds - " + FlightGlobals.ActiveVessel);
 			foreach (Part p in FlightGlobals.ActiveVessel.Parts) {
 				foreach(PartModule pm in p.Modules) {
 					if (pm is ModuleEngines) {
