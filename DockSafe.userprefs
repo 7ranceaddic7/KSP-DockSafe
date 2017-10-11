@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="DockSafe/DockSafe.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DockSafe/Properties/AssemblyInfo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DockSafe/DockSafe.cs">
     <Files>
-      <File FileName="DockSafe/DockSafe.cs" Line="6" Column="2" />
+      <File FileName="DockSafe/DockSafe.cs" Line="11" Column="25" />
       <File FileName="DockSafe/Properties/AssemblyInfo.cs" Line="20" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
