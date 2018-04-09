@@ -1,2 +1,10 @@
 DockSafe/obj
 DockSafe/bin
+.vs/DockSafe/v15/.suo
+*.lock
+*.ide
+*.dll
+*.dll
+GameData/DockSafe/DockSafe.dll
+*.dll
+*.dll
